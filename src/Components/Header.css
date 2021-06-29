@@ -1,0 +1,36 @@
+.header {
+  display: flex ;
+  align-items: center ;
+  justify-content: space-between ;
+  background-color: blue ;
+  padding: 25px ;
+}
+
+.right-header > img {
+  object-fit: contain;
+}
+
+.right-header > img:first-child {
+  max-width: 16vw ;
+  height: 65px ;
+  position: relative;
+}
+
+.right-header > img:first-child:after {
+  content: '' ;
+  position: absolute;
+  bottom: -10px ;
+  height: 2px ;
+  background-color: white ;
+  left: 0 ;
+  transition: .3s ease-out ;
+
+}
+.right-header > img:first-child:hover .right-header > img:first-child:after {
+  right: 0 ;
+  width: 100% ;
+}
+
+.right-header > img:nth-child(2) {
+  height: 65px ;
+}

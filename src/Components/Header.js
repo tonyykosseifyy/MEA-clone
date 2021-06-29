@@ -7,12 +7,16 @@ const mideastlogo = 'https://www.mea.com.lb/images/skyteam-logo.png';
 
 const Header = () => {
   return (
-    <nav className='header'>
-      <RightHeader>
+    <div className='header'>
+      <HeaderChild className='right-header'>
         <img src={middleEastUrl} alt='middle East Url' />
         <img src={mideastlogo} alt='middle East Url' />
-      </RightHeader>
-    </nav>
+      </HeaderChild>
+
+      <HeaderChild className='center-header'>
+
+      </HeaderChild>
+    </div>
   ) ;
 } ;
 
@@ -20,15 +24,14 @@ const Header = () => {
 export default Header ;
 
 
-
-
-const RightHeader = styled.div`
+const HeaderChild = styled.div`
   display: flex ;
   align-items: center ;
-  background-color: blue ;
-  & > img {
-    object-fit: contain ;
-    max-width : 8vw ;
-    max-height: 150px ;
-  }
+`
+const HeaderLinks = styled.a`
+  display : block ;
+  background: transparent ;
+  color: white ;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400 ; 
 `
