@@ -28,6 +28,7 @@ const covidImage = 'https://www.mea.com.lb/images/covid_hp.jpg'
 const About = () => {
   return (
     <div className='about'>
+      <img src={covidImage} alt='covid image' />
       <div className='about-container' >
           <h1>Covid-19 and Travel</h1>
           <p>

@@ -55,7 +55,7 @@ const Header = ({setHover , hover , navOpen , setNavOpen }) => {
       </MobileNavbar>
       <MoreDetails hoverState={hover} onMouseLeave={() => setHover(false)} onMouseOver={() => setHover(true)}><h1>{indexHover}</h1></MoreDetails>
       <HeaderChild className='left-header' up={up}>
-        <Menu navOpen={navOpen} setNavOpen={setNavOpen} />
+        <Menu navOpen={navOpen} setNavOpen={setNavOpen} up={up} />
         <img src={up ? stickyMEA : middleEastUrl } alt='middle East Url' />
         <img src={up ? stickyLogo : mideastlogo} alt='middle East Url' />
       </HeaderChild>
@@ -82,7 +82,7 @@ const Header = ({setHover , hover , navOpen , setNavOpen }) => {
           <p style={{margin: '0 7px'}}>English-Lebanon</p>
           <BiSearch />
       </LanguageSelectButton>
-      <BiSearch className='search-svg'/>
+      <BiSearch className='search-svg' style={{color: up ? 'black' : 'white'}}/>
       </HeaderChild>
     </div>
   ) ;

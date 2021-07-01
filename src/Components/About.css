@@ -7,6 +7,13 @@
   position: relative;
   z-index: 100 ;
 }
+.about > img {
+  display: none  ;
+  width: 100% ;
+  min-height: 240px ;
+  margin-bottom: 40px ;
+  object-fit: contain ;
+}
 .about-container {
   display: flex ;
   justify-content: center;
@@ -38,8 +45,29 @@
 }
 
 
-@media (max-width: 1130px) {
+@media screen and (max-width: 1130px) {
   .about-container {
     margin-top: 0 ;
+  }
+}
+@media screen and (max-width:780px) {
+  .about {
+    background-image: url('') ;
+    display: flex ;
+    flex-direction: column ;
+    padding: 0 ;
+  }
+  .about::before {
+    display: none ;
+  }
+  .about > img {
+    display: block ;
+  }
+  .aboout-container {
+    padding-left: 2vw ;
+  }
+  .about-container > h1 {
+    font-size: 2rem ;
+    margin-bottom: 10px ;
   }
 }
