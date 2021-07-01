@@ -7,6 +7,8 @@ import Menu from './Menu' ;
 
 const middleEastUrl = 'https://www.mea.com.lb/images/mea-logo-new.png?v=20210531' ;
 const mideastlogo = 'https://www.mea.com.lb/images/skyteam-logo.png';
+const stickyMEA = 'https://www.mea.com.lb/images/mea-colored-1.png' ;
+const stickyLogo = 'https://www.mea.com.lb/images/skyteam-colored.png' ;
 
 const links = [
   'Plan & Book' , 'Traveler Info' , 'Cedar Miles' , 'About Us'
@@ -18,30 +20,35 @@ const Header = () => {
   const [ navOpen , setNavOpen ] = useState(false) ;
   const [ scroll , setScroll ] = useState(0) ;
   const [ up , setUp ] = useState(false) ;
-  console.log(window.scrollTop , window.scrollY)
   window.addEventListener('resize' , () => {
     if (window.innerWidth > 1130) {
         setNavOpen(false)
       }
   })
   window.addEventListener('scroll' , (e) => {
-    console.log('prev' , scroll , 'curnt' , window.scrollY , up)
-    if ( scroll > window.scrollY ) {
-      setUp(true) ;
-    } else {
+    console.log('prev' , scroll , 'curnt' , window.scrollY )
+    if (window.scrollY == 0) {
       setUp(false)
+    } else if ( scroll > window.scrollY ) {
+      setUp(true) ;
+      setScroll(window.scrollY)
+    } else if (scroll < window.scrollY) {
+      up && setUp(false) ;
+      setScroll(window.scrollY)
     }
-    setScroll(window.scrollY)
   })
+  console.log(up)
   const hoverFunction = (index) => {
     setHover(true) ;
     setIndexHover(index) ;
   }
   const propsA = {
-    onMouseLeave: () => setHover(false)
+    onMouseLeave: () => setHover(false),
+    up,
+    hover
   }
   return (
-    <div className='header' style={{background: hover && '#1F1F1F', position: up ? 'sticky': '' , top: '0'}}>
+    <div className={`header ${up ? 'header-sticky' : ''}`} style={{background: hover && !up ? '#1F1F1F' : ''}}>
       <MobileNavbar navOpen={navOpen} onClick={() => setNavOpen(false)}>
         <HeaderChild className='left-header' style={{height: 'auto'}}>
             <Menu navOpen={navOpen} setNavOpen={setNavOpen} />
@@ -53,13 +60,13 @@ const Header = () => {
         ))}
       </MobileNavbar>
       <MoreDetails hoverState={hover} onMouseLeave={() => setHover(false)} onMouseOver={() => setHover(true)}><h1>{indexHover}</h1></MoreDetails>
-      <HeaderChild className='left-header'>
+      <HeaderChild className='left-header' up={up}>
         <Menu navOpen={navOpen} setNavOpen={setNavOpen} />
-        <img src={middleEastUrl} alt='middle East Url' />
-        <img src={mideastlogo} alt='middle East Url' />
+        <img src={up ? stickyMEA : middleEastUrl } alt='middle East Url' />
+        <img src={up ? stickyLogo : mideastlogo} alt='middle East Url' />
       </HeaderChild>
 
-      <HeaderChild className='center-header' >
+      <HeaderChild className='center-header' up={up}>
         { links.map((item , index) => (
           <HeaderLinks
             {...propsA}
@@ -71,7 +78,7 @@ const Header = () => {
         ))}
       </HeaderChild>
 
-      <HeaderChild className='right-header'>
+      <HeaderChild className='right-header' up={up}>
         <LanguageSelectButton>
           <AiOutlineUser />
           <p style={{marginLeft: '7px'}}>Login Or Register</p>
@@ -95,19 +102,20 @@ const HeaderChild = styled.div`
   display: flex ;
   align-items: center ;
   height: 100% ;
+  color: ${(props) => props.up ? "black" : 'white' } ;
 `
 const HeaderLinks = styled.a`
   display : block ;
   background: transparent ;
-  color: white ;
+  color: ${(props) => props.up ? "black" : 'white' } ;
   font-family: 'Roboto', sans-serif;
   font-weight: 500 ;
   cursor: pointer ;
   padding: 27px 11px ;
   transition: .3s ease-out ;
   &:hover {
-    background-color: white ;
-    color: #0873B9 ;
+    background-color: ${(props) => props.up ? "white" : 'white' };
+    color: ${(props) => props.up ? "black" : '#0873B9' };
   }
   @media (max-width: 1130px) {
     display: none ;
@@ -121,6 +129,7 @@ const LanguageSelectButton = styled(ModifiedButton)`
   align-items: center ;
   font-weight: 200 ;
   font-size: 18px ;
+  color : inherit ;
   & > svg {
     width: 20px ;
     height: 20px ;

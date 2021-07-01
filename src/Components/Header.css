@@ -9,7 +9,14 @@
   padding-bottom: 0 ;
   height: 90px ;
 }
-
+.header-sticky {
+  position: sticky ;
+  top: 0 ;
+  right: 0 ;
+  left: 0 ;
+  z-index: 300 ;
+  background-color: white ;
+}
 .left-header > img {
   object-fit: contain;
 }
