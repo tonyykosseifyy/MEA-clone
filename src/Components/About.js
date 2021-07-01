@@ -28,16 +28,18 @@ const covidImage = 'https://www.mea.com.lb/images/covid_hp.jpg'
 const About = () => {
   return (
     <div className='about'>
-        <h1>Covid-19 and Travel</h1>
-        <p>
-          We continue to discover the world together.
-          <br/>
-          MEA has put into effect special measures to protect your next journey!
-        </p>
-        <Button
-          w='140px'
-          h='50px'
-        >Read More</Button>
+      <div className='about-container' >
+          <h1>Covid-19 and Travel</h1>
+          <p>
+            We continue to discover the world together.
+            <br/>
+            MEA has put into effect special measures to protect your next journey!
+          </p>
+          <Button
+            w='140px'
+            h='50px'
+          >Read More</Button>
+      </div>
     </div>
   ) ;
 } ;
