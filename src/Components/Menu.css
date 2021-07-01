@@ -1,0 +1,28 @@
+
+button.menu  {
+  background-color: transparent ;
+  border: none ;
+  outline: none ;
+  cursor: pointer ;
+  margin-right: 15px ;
+  display: none ;
+}
+@media screen and (max-width: 1130px ) {
+    button.menu {
+      display: block ;
+    }
+}
+
+.menu > svg > line {
+  transition: .3s ease-in-out ;
+}
+.opened > svg > line:first-child {
+  transform: rotate(-45deg) translate(-30px , 10px) scale(1.15) ;
+}
+.opened > svg > line:nth-child(2) {
+  transform: translateX(-100%) ;
+  opacity: 0 ;
+}
+.opened > svg > line:last-child {
+  transform: rotate(45deg) translate(3px , -20px) scale(1.15)
+}

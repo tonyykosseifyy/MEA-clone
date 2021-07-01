@@ -2,35 +2,48 @@
   display: flex ;
   align-items: center ;
   justify-content: space-between ;
-  background-color: blue ;
-  padding: 25px ;
+  background-color: transparent ;
+  padding: 23px ;
+  transition: .3s ease-out ;
+  position: relative;
+  padding-bottom: 0 ;
+  height: 90px ;
 }
 
-.right-header > img {
+.left-header > img {
   object-fit: contain;
 }
 
-.right-header > img:first-child {
-  max-width: 16vw ;
-  height: 65px ;
+.left-header > img:nth-child(2) {
+  max-width: 14vw ;
+  height: 45px ;
   position: relative;
+  cursor: pointer ;
 }
 
-.right-header > img:first-child:after {
-  content: '' ;
-  position: absolute;
-  bottom: -10px ;
-  height: 2px ;
-  background-color: white ;
-  left: 0 ;
-  transition: .3s ease-out ;
 
+.left-header > img:last-child {
+  height: 45px ;
 }
-.right-header > img:first-child:hover .right-header > img:first-child:after {
-  right: 0 ;
-  width: 100% ;
+.search-svg {
+  display: none ;
+  color: white ;
+  width: 35px ;
+  height: 35px ;
+}
+@media screen and (max-width: 1130px) {
+  .search-svg {
+    display: block ;
+  }
 }
 
-.right-header > img:nth-child(2) {
-  height: 65px ;
+
+@media screen and (max-width: 720px) {
+  .left-header > img:nth-child(2) {
+    height: 35px ;
+    max-width: 80px ;
+  }
+  .left-header > img:last-child {
+    height: 35px ;
+  }
 }
