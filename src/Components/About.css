@@ -1,0 +1,33 @@
+.about {
+  background-color: white ;
+  padding: 25vh 0 ;
+  display: flex ;
+  margin-top: 100px ;
+  background-image: url('https://www.mea.com.lb/images/covid_hp.jpg') ;
+  background-position: right ;
+  background-repeat: no-repeat;
+  background: linear-gradient(180deg , white , transparent , )
+}
+
+.about {
+  display: flex ;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-left: 6vw ;
+}
+.about > h1 {
+  font-size: 3rem ;
+  color: #3D3D3F ;
+}
+.about > h1, p {
+  margin-bottom: 30px ;
+  line-height: 30px ;
+}
+
+
+@media (max-width: 1130px) {
+  .about {
+    margin-top: 0 ;
+  }
+}
