@@ -4,6 +4,8 @@ import Home from './Components/Home'
 import Header from './Components/Header' ;
 import styled from 'styled-components' ;
 import About from './Components/About'
+import Flights from './Components/Flights' ;
+
 
 const mainImageUrl = 'https://www.mea.com.lb/images/mainBanner.jpg?w=1663&h=936&mode=crop' ;
 
@@ -22,7 +24,8 @@ function App() {
         <Header hover={hover} setHover={setHover} navOpen={navOpen} setNavOpen={setNavOpen} />
         <Home hover={hover} setBackground={setBackground} />
         <About />
-      </div>
+        <Flights />
+    </div>
   );
 } ;
 

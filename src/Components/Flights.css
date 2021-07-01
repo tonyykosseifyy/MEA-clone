@@ -1,0 +1,10 @@
+.flights {
+  margin: 25vh 0 ;
+}
+
+
+.fligths > h1 {
+  font-size: 4rem ;
+  color: #252829 ;
+  margin: 20px 0 ;
+}
