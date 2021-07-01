@@ -24,6 +24,9 @@
   z-index: 0 ;
   background-color: rgba(0, 0, 0, 0.2)
 }
+.home-overlay::before {
+  background-color: rgba(0, 0, 0, 0.7)
+}
 @media screen and (max-width: 1130px) {
   .cont:hover > div {
     transform: none ;

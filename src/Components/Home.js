@@ -30,8 +30,9 @@ const LinksData = [
 
 const Home = () => {
   const [ background , setBackground ] = useState(mainImageUrl) ;
+  const [ hover , setHover ] = useState(false) ;
   return (
-    <div className='home' style={{backgroundImage: `url(${background})`}}>
+    <div className='home' style={{backgroundImage: `url(${background})` }}>
       <Header />
       <CenterHome>
         {LinksData.map((item , index) => (

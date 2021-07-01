@@ -1,4 +1,4 @@
-import React, { useState } from 'react' ;
+import React, { useState , useEffect } from 'react' ;
 import './Header.css' ;
 import styled from 'styled-components' ;
 import { BiWorld , BiSearch} from 'react-icons/bi' ;
@@ -19,24 +19,25 @@ const Header = () => {
   const [ indexHover , setIndexHover ] = useState(0) ;
   const [ navOpen , setNavOpen ] = useState(false) ;
   const [ scroll , setScroll ] = useState(0) ;
+  const [ prevScroll , setPrevScroll ] = useState(0) ;
   const [ up , setUp ] = useState(false) ;
   window.addEventListener('resize' , () => {
     if (window.innerWidth > 1130) {
         setNavOpen(false)
       }
   })
-  window.addEventListener('scroll' , (e) => {
-    console.log('prev' , scroll , 'curnt' , window.scrollY )
-    if (window.scrollY == 0) {
-      setUp(false)
-    } else if ( scroll > window.scrollY ) {
-      setUp(true) ;
-      setScroll(window.scrollY)
-    } else if (scroll < window.scrollY) {
+  window.addEventListener('scroll', () => setScroll(window.scrollY)) ;
+
+  useEffect(() => {
+    if (scroll == 0) {
+      setUp(false) ;
+    } else if ( prevScroll > scroll ) {
+      !up && setUp(true) ;
+    } else if ( prevScroll < scroll ) {
       up && setUp(false) ;
-      setScroll(window.scrollY)
     }
-  })
+    setPrevScroll(scroll)
+  }, [scroll])
   console.log(up)
   const hoverFunction = (index) => {
     setHover(true) ;
@@ -103,6 +104,13 @@ const HeaderChild = styled.div`
   align-items: center ;
   height: 100% ;
   color: ${(props) => props.up ? "black" : 'white' } ;
+  & > img:nth-child(2) {
+    border-bottom: 2px solid transparent ;
+    transition: .3s ease-out ;
+  }
+  & > img:nth-child(2):hover {
+    border-color:  ${(props) => props.up ? "green" : 'white' }
+  }
 `
 const HeaderLinks = styled.a`
   display : block ;
@@ -111,11 +119,11 @@ const HeaderLinks = styled.a`
   font-family: 'Roboto', sans-serif;
   font-weight: 500 ;
   cursor: pointer ;
-  padding: 27px 11px ;
+  padding: 24px 11px ;
   transition: .3s ease-out ;
   &:hover {
     background-color: ${(props) => props.up ? "white" : 'white' };
-    color: ${(props) => props.up ? "black" : '#0873B9' };
+    color: #0873B9  ;
   }
   @media (max-width: 1130px) {
     display: none ;
