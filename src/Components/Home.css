@@ -1,32 +1,15 @@
 .home {
-  height: 200vh ;
-  background-position: left;
-  background-repeat: no-repeat;
+  height: 100vh ;
   font-family: 'Roboto', sans-serif;
   transition:  .3s ease-in ;
-  transition-delay: .09s ;
-  background-size: cover;
-  max-width: 100vw ;
-  //max-height: 100vh ;
-
+  background-color: transparent ;
+  position: relative;
+  z-index: 5 ;
 }
 .cont:hover > div {
   transform: translateY(-60px);
 }
-.home::before {
-  content: '' ;
-  position: absolute;
-  top: 0 ;
-  right: 0 ;
-  left: 0 ;
-  width: 100vw ;
-  height: 100vh ;
-  z-index: 0 ;
-  background-color: rgba(0, 0, 0, 0.2)
-}
-.home-overlay::before {
-  background-color: rgba(0, 0, 0, 0.7)
-}
+
 @media screen and (max-width: 1130px) {
   .cont:hover > div {
     transform: none ;

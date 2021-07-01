@@ -4,18 +4,19 @@
   justify-content: space-between ;
   background-color: transparent ;
   padding: 23px ;
-  transition: .3s ease-out ;
+  transition: all .4s ease-out ;
   position: relative;
   padding-bottom: 0 ;
   height: 90px ;
+  z-index: 2 ;
 }
 .header-sticky {
   position: sticky ;
   top: 0 ;
   right: 0 ;
   left: 0 ;
-  z-index: 300 ;
   background-color: white ;
+  z-index: 200 ;
 }
 .left-header > img {
   object-fit: contain;
@@ -52,5 +53,21 @@
   }
   .left-header > img:last-child {
     height: 35px ;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0 ;
+    display: none ;
+    z-index: -5 ;
+  }
+  50% {
+    opacity: .5 ;
+    display: block ;
+  }
+  100% {
+    opacity: 1 ;
+    display: block ;
+    z-index: 400 ;
   }
 }

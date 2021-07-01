@@ -14,10 +14,8 @@ const links = [
   'Plan & Book' , 'Traveler Info' , 'Cedar Miles' , 'About Us'
 ]
 
-const Header = () => {
-  const [ hover , setHover ] = useState(false) ;
+const Header = ({setHover , hover , navOpen , setNavOpen }) => {
   const [ indexHover , setIndexHover ] = useState(0) ;
-  const [ navOpen , setNavOpen ] = useState(false) ;
   const [ scroll , setScroll ] = useState(0) ;
   const [ prevScroll , setPrevScroll ] = useState(0) ;
   const [ up , setUp ] = useState(false) ;
@@ -49,13 +47,8 @@ const Header = () => {
     hover
   }
   return (
-    <div className={`header ${up ? 'header-sticky' : ''}`} style={{background: hover && !up ? '#1F1F1F' : ''}}>
+    <div className={`header ${up ? 'header-sticky' : ''}`} style={{background: hover && !up ? '#1F1F1F' : '', zIndex: hover || navOpen ? '400' : ''}}>
       <MobileNavbar navOpen={navOpen} onClick={() => setNavOpen(false)}>
-        <HeaderChild className='left-header' style={{height: 'auto'}}>
-            <Menu navOpen={navOpen} setNavOpen={setNavOpen} />
-            <img src={middleEastUrl} alt='middle East Url' />
-            <img src={mideastlogo} alt='middle East Url' />
-          </HeaderChild>
         { links.map((item , index) => (
           <MobileLinks key={index}>{item}</MobileLinks>
         ))}
@@ -151,27 +144,28 @@ const MoreDetails = styled.div`
   bottom: -400px ;
   right: 0 ;
   left: 0 ;
-  width: 100vw ;
+  width: 100% ;
   height: 400px ;
   background-color: white ;
   transition: .3s ease-out ;
   opacity: ${(props) => props.hoverState ? '1' : '0'} ;
-  z-index: ${(props) => props.hoverState ? '105' : '-1'} ;
+  display: ${(props) => props.hoverState ? 'block' : 'none'} ;
 `
 const MobileNavbar = styled.div`
   position: fixed ;
   top: 0 ;
   left: 0 ;
-  width: 45vw ;
+  width: 65vw ;
   height: 100vh ;
   bottom: 0 ;
   background-color: #2B343A ;
   opacity: ${(props) => props.navOpen ? '1' : '0'} ;
-z-index: ${(props) => props.navOpen ? '200' : '-4'} ;
+  z-index: ${(props) => props.navOpen ? '-5' : '-5'} ;
+  display: ${(props) => props.navOpen ? 'flex' : 'none'} ;
   transition: .3s ease-in-out ;
-  display: flex ;
   flex-direction: column ;
-  padding: 30px 5px ;
+  padding: 0 5px ;
+  padding-top: 100px ;
   justify-content: flex-start ;
   & button.menu {
     margin-left: 17px ;
@@ -180,13 +174,14 @@ z-index: ${(props) => props.navOpen ? '200' : '-4'} ;
     content: '' ;
     position: absolute ;
     height: 100vh ;
-    width: 55vw ;
+    width: 35vw ;
     top: 0 ;
     bottom: 0 ;
     right: 0 ;
-    left: 45vw ;
-    z-index: -1 ;
-    background-color: rgba(0,0,0,0.8)
+    left: 65vw ;
+    background-color: rgba(0,0,0,0.8) ;
+    z-index: ${(props) => props.navOpen ? '400' : '-5'} ;
+    display: ${(props) => props.navOpen ? 'block' : 'none'} ;
   }
 `
 const MobileLinks = styled(HeaderLinks)`

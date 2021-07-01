@@ -2,9 +2,8 @@ import React, { useState } from 'react' ;
 import './Home.css' ;
 import Header from './Header' ;
 import styled from 'styled-components'
+
 const mainImageUrl = 'https://www.mea.com.lb/images/mainBanner.jpg?w=1663&h=936&mode=crop' ;
-
-
 const LinksData = [
   {
     title: 'Book a trip' ,
@@ -28,12 +27,9 @@ const LinksData = [
   }
 ] ;
 
-const Home = () => {
-  const [ background , setBackground ] = useState(mainImageUrl) ;
-  const [ hover , setHover ] = useState(false) ;
+const Home = ({setBackground}) => {
   return (
-    <div className='home' style={{backgroundImage: `url(${background})` }}>
-      <Header />
+    <div className='home'>
       <CenterHome>
         {LinksData.map((item , index) => (
           <div
