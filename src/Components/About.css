@@ -38,8 +38,10 @@
   font-size: 3.2rem ;
   color: #3D3D3F ;
   font-weight: 400 ;
+  margin-bottom: 30px ;
+  line-height: 30px ;
 }
-.about-container > h1, p {
+.about-container >  p {
   margin-bottom: 30px ;
   line-height: 30px ;
 }

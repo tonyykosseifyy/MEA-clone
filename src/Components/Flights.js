@@ -1,11 +1,14 @@
-import React from 'react' ;
-import './Flights' ;
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import React, { useState } from 'react' ;
+import './Flights.css' ;
+import SwiperCore, { Navigation, Pagination, A11y } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
+import 'swiper/components/pagination/pagination.scss';
+import { Button } from './About' ;
 
-import 'swiper-bundle.min.css' ;
-
+SwiperCore.use([Navigation , Pagination]);
 
 const flights = [
   {
@@ -56,20 +59,50 @@ const flights = [
 ]
 
 const Flights = () => {
+  const [ grabbing , setGrabbing ] = useState(false) ;
+  const swiperProps = {
+    onMouseDown: () => console.log('mouseDown') ,
+    onMouseUp: () => console.log('mouseUp'),
+    onClick: () => console.log('moouse click') ,
+    style: {
+      cursor :grabbing ? 'grabbing' : 'grab'
+    }
+  }
   return (
     <div className='flights'>
       <h1>Our latest flight deals</h1>
       <div className='slider'>
+        <div className='slider-sidebar'></div>
         <Swiper
-          spaceBetween={50}
+          spaceBetween={0}
           slidesPerView={1}
           navigation
+          loop
           pagination={{ clickable: true }}
         >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
+          { flights.map((item , index) => (
+            <SwiperSlide key={index} >
+              <img src={item.url} {...swiperProps} alt={item.title} />
+              <div className='slider-details'>
+                <p>{item.timeleft}</p>
+                <p>{item.travel}</p>
+                <h1>{item.title}</h1>
+                <span>{item.traveltype}</span>
+                <p>{item.price}<span></span></p>
+                <div className='slider-book'>
+                  <Button
+                    bg='white'
+                    co='black'
+                    w='110px'
+                    h='55px'
+                    bc='white'
+                    c='#0873BA'
+                    >Book</Button>
+                  <span>fare conditions</span>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>
