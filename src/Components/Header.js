@@ -53,7 +53,13 @@ const Header = ({setHover , hover , navOpen , setNavOpen }) => {
           <MobileLinks key={index}>{item}</MobileLinks>
         ))}
       </MobileNavbar>
-      <MoreDetails hoverState={hover} onMouseLeave={() => setHover(false)} onMouseOver={() => setHover(true)}><h1>{indexHover}</h1></MoreDetails>
+      <MoreDetails
+        hoverState={hover}
+        onMouseLeave={() => setHover(false)}
+        onMouseOver={() => setHover(true)}
+      >
+        <h1>{indexHover}</h1>
+      </MoreDetails>
       <HeaderChild className='left-header' up={up}>
         <Menu navOpen={navOpen} setNavOpen={setNavOpen} up={up} />
         <img src={up ? stickyMEA : middleEastUrl } alt='middle East Url' />
