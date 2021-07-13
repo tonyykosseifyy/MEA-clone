@@ -4,6 +4,7 @@ import styled from 'styled-components' ;
 import { BiWorld , BiSearch} from 'react-icons/bi' ;
 import { AiOutlineUser } from 'react-icons/ai' ;
 import Menu from './Menu' ;
+import { flightsData } from './data.js' ;
 
 const middleEastUrl = 'https://www.mea.com.lb/images/mea-logo-new.png?v=20210531' ;
 const mideastlogo = 'https://www.mea.com.lb/images/skyteam-logo.png';
@@ -57,7 +58,23 @@ const Header = ({setHover , hover , navOpen , setNavOpen }) => {
         hoverState={hover}
         onMouseLeave={() => setHover(false)}
       >
-        <div className='details-top' onMouseOver={() => setHover(true)}><h1>{indexHover}</h1></div>
+        <div className='details-top' onMouseOver={() => setHover(true)}>
+          <div className='details-left'>
+            { flightsData[indexHover]['description'].map((item, index) => (
+              <DetailsComponents key={index}>
+                <span>{item.hasOwnProperty('icon') && item.icon}</span><h4>{item.subTitle}</h4>
+                <p>{item.subDescription}</p>
+              </DetailsComponents>
+            )) }
+          </div>
+          <div className='details-right'>
+            {flightsData[indexHover].hasOwnProperty('features') && flightsData[indexHover]['features'].map((item , index) => (
+              <DetailsComponents key={index}>
+                { item }
+              </DetailsComponents>
+            ))}
+          </div>
+        </div>
         <div className='details-bottom' onMouseOver={() => setHover(false)}></div>
       </MoreDetails>
       <HeaderChild className='left-header' up={up}>
@@ -195,4 +212,9 @@ const MobileLinks = styled(HeaderLinks)`
 `
 const MobileHeaderContainer = styled.div`
   display: flex ;
+`
+const DetailsComponents = styled.div`
+  display: flex ;
+  flex-direction: column ;
+  margin: 20px 40px ;
 `

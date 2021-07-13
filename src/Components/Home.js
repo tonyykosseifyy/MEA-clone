@@ -50,7 +50,7 @@ const Home = ({setBackground}) => {
   ) ;
 } ;
 const Bar = styled.div`
-  background-color: #A0A2A6 ;
+  background-color: rgba(255,255,255,.4) ;
   height: 2px ;
   width: 70px ;
 `
