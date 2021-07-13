@@ -39,6 +39,9 @@
   width: 35px ;
   height: 35px ;
 }
+
+
+
 @media screen and (max-width: 1130px) {
   .search-svg {
     display: block ;
@@ -70,4 +73,37 @@
     display: block ;
     z-index: 400 ;
   }
+}
+
+@keyframes moreDetails {
+  0% {
+    opacity: 1 ;
+    height: 0 ;
+  }
+  100% {
+    height: 300px ;
+  }
+}
+@keyframes moreDetailsbtm {
+  0% {
+    opacity: 0 ;
+  }
+  100% {
+    opacity: 1 ;
+  }
+}
+.details-top {
+  background-color: white ;
+  animation-name: moreDetails ;
+  animation-duration: .3s ;
+  animation-iteration-count: 1 ;
+  animation-fill-mode: forwards;
+}
+.details-bottom {
+  flex : auto ;
+  background-color: rgba(0,0,0,.7) ;
+  animation-name: moreDetailsbtm ;
+  animation-duration: .3s ;
+  animation-iteration-count: 1 ;
+  animation-fill-mode: forwards;
 }

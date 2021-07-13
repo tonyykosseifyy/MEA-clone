@@ -56,9 +56,9 @@ const Header = ({setHover , hover , navOpen , setNavOpen }) => {
       <MoreDetails
         hoverState={hover}
         onMouseLeave={() => setHover(false)}
-        onMouseOver={() => setHover(true)}
       >
-        <h1>{indexHover}</h1>
+        <div className='details-top' onMouseOver={() => setHover(true)}><h1>{indexHover}</h1></div>
+        <div className='details-bottom' onMouseOver={() => setHover(false)}></div>
       </MoreDetails>
       <HeaderChild className='left-header' up={up}>
         <Menu navOpen={navOpen} setNavOpen={setNavOpen} up={up} />
@@ -147,15 +147,14 @@ const LanguageSelectButton = styled(ModifiedButton)`
 `
 const MoreDetails = styled.div`
   position: absolute ;
-  bottom: -400px ;
+  top: 70px ;
   right: 0 ;
   left: 0 ;
   width: 100% ;
-  height: 400px ;
-  background-color: white ;
-  transition: .3s ease-out ;
+  height: calc(100vh - 70px) ;
   opacity: ${(props) => props.hoverState ? '1' : '0'} ;
-  display: ${(props) => props.hoverState ? 'block' : 'none'} ;
+  display: ${(props) => props.hoverState ? 'flex' : 'none'} ;
+  flex-direction: column ;
 `
 const MobileNavbar = styled.div`
   position: fixed ;
