@@ -112,7 +112,7 @@ const HeaderLinks = styled.a`
   font-family: 'Roboto', sans-serif;
   font-weight: 500 ;
   cursor: pointer ;
-  padding: 24px 11px ;
+  padding: 25px 11px ;
   transition: .3s ease-out ;
   &:hover {
     background-color: ${(props) => props.up ? "white" : 'white' };

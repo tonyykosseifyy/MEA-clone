@@ -90,7 +90,7 @@ const CenterHome = styled.section`
   display: flex ;
   align-items: center ;
   justify-content: space-evenly ;
-  height: calc(100vh - 190px);
+  height: calc(100vh - 170px);
   z-index: 100 ;
   position: relative ;
   @media (max-width: 1130px) {

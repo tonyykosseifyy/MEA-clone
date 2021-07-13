@@ -3,11 +3,10 @@
   align-items: center ;
   justify-content: space-between ;
   background-color: transparent ;
-  padding: 23px ;
+  padding: 0 23px ;
   transition: all .4s ease-out ;
   position: relative;
-  padding-bottom: 0 ;
-  height: 90px ;
+  height: 70px ;
   z-index: 2 ;
 }
 .header-sticky {
@@ -17,13 +16,14 @@
   left: 0 ;
   background-color: white ;
   z-index: 200 ;
+  box-shadow: 0 3px 7px -5px rgb(0 0 0 / 75%);
 }
 .left-header > img {
   object-fit: contain;
 }
 
 .left-header > img:nth-child(2) {
-  max-width: 14vw ;
+  max-width: 13.5vw ;
   height: 45px ;
   position: relative;
   cursor: pointer ;
@@ -31,7 +31,7 @@
 
 
 .left-header > img:last-child {
-  height: 45px ;
+  height: 35px ;
 }
 .search-svg {
   display: none ;
