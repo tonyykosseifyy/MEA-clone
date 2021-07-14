@@ -102,6 +102,7 @@
   grid-template-columns: 75% 25%;
   grid-template-rows: 100%;
   padding: 40px 20px ;
+  overflow-y: hidden ;
 }
 .details-bottom {
   flex : auto ;
