@@ -61,13 +61,13 @@ const flights = [
 const Flights = () => {
   const [ grabbing , setGrabbing ] = useState(false) ;
   const swiperProps = {
-    onMouseDown: () => console.log('mouseDown') ,
-    onMouseUp: () => console.log('mouseUp'),
-    onClick: () => console.log('moouse click') ,
+    onDragStart: () => console.log('drag start'),
+    onDragEnd: () => console.log('drag end'),
     style: {
       cursor :grabbing ? 'grabbing' : 'grab'
     }
   }
+
   return (
     <div className='flights'>
       <h1>Our latest flight deals</h1>
@@ -79,10 +79,11 @@ const Flights = () => {
           navigation
           loop
           pagination={{ clickable: true }}
+          {...swiperProps}
         >
           { flights.map((item , index) => (
             <SwiperSlide key={index} >
-              <img src={item.url} {...swiperProps} alt={item.title} />
+              <img src={item.url} alt={item.title}  {...swiperProps} draggable={true} />
               <div className='slider-details'>
                 <p>{item.timeleft}</p>
                 <p>{item.travel}</p>
