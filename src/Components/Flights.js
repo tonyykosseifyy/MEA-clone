@@ -78,12 +78,12 @@ const Flights = () => {
           slidesPerView={1}
           navigation
           loop
+          grabCursor={true}
           pagination={{ clickable: true }}
-          {...swiperProps}
         >
           { flights.map((item , index) => (
             <SwiperSlide key={index} >
-              <img src={item.url} alt={item.title}  {...swiperProps} draggable={true} />
+              <img src={item.url} alt={item.title} />
               <div className='slider-details'>
                 <p>{item.timeleft}</p>
                 <p>{item.travel}</p>

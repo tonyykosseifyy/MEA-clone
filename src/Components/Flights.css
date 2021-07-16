@@ -18,19 +18,17 @@
 .slider .swiper-container {
   height: 100% ;
 }
-.swiper-slide {
-  cursor: grab ;
-}
+
 .swiper-slide > img {
   width: 100% ;
   height: 100% ;
   object-fit: cover ;
   transition: .3s ease-out ;
-  cursor: grabbing;
 }
 .swiper-slide:hover > img {
   transform: scale(1.08) ;
 }
+
 .slider-details {
   position: absolute ;
   top: 50% ;
