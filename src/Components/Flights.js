@@ -1,12 +1,12 @@
-import React, { useState , createRef } from 'react' ;
+import React, { useState } from 'react' ;
 import './Flights.css' ;
-import SwiperCore, { Navigation, Pagination, A11y , Thumbs } from 'swiper';
+import SwiperCore, { Navigation, Pagination, A11y , Thumbs  } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import 'swiper/components/pagination/pagination.scss';
-import 'swiper/components/effect-fade/effect-fade.scss';
+
 import { Button } from './About' ;
 import styled from 'styled-components' ;
 
@@ -62,9 +62,10 @@ const flights = [
 
 const Flights = () => {
   const [ indexx , setIndexx ] = useState(0) ;
+  console.log(indexx)
   return (
     <div className='flights'>
-      <h1>Our latest flight deals</h1>
+      <h1>Our latest flight deals</h1> 
       <div className='slider'>
         <div className='slider-sidebar'>
           <Pointer indexx={indexx} ></Pointer>
@@ -86,9 +87,9 @@ const Flights = () => {
           navigation
           loop
           grabCursor={true}
-          effect={ window.innerWidth < 1130 ? "fade" : ''}
+          effect='fade'
           onSlideChange={(e) => setIndexx(e.activeIndex)}
-          autoplay={{delay: 5000}}
+          autoPlay={{delay: 5000}}
         >
           { flights.map((item , index) => (
             <SwiperSlide key={index} >

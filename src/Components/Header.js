@@ -37,7 +37,7 @@ const Header = ({setHover , hover , navOpen , setNavOpen }) => {
     }
     setPrevScroll(scroll)
   }, [scroll])
-  console.log(up)
+
   const hoverFunction = (index) => {
     setHover(true) ;
     setIndexHover(index) ;

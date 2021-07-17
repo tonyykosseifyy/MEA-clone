@@ -1,7 +1,12 @@
 .flights {
-  margin: 25vh 20px ;
+  margin: 15vh 20px ;
 }
-
+.flights > h1 {
+  font-size: 3.2rem ;
+  text-align: center ;
+  margin-bottom: 30px ;
+  font-weight: 500 ;
+}
 .slider {
   height : 85vh ;
   position: relative;
@@ -41,6 +46,7 @@
   padding: 10px 25px ;
   width: 470px  ;
   min-width: 400px ;
+  height: 320px ;
 }
 .slider-details > p:first-child {
   margin-left: auto ;
@@ -78,8 +84,24 @@
 
 
 
-@media screen and (max-width:1130px) {
+
+
+@media screen and (max-width: 760px) {
+  .slider {
+    height: 75vh ;
+  }
+  .slider-sidebar {
+    display: none ;
+  }
   .slider .swiper-button-next , .swiper-button-prev {
     display: block !important ;
+  }
+  .slider-details {
+    width: 100% ;
+    right: 0 ;
+    height: 280px ;
+  }
+  .slider-details > h1 {
+    font-size: 26px ;
   }
 }
